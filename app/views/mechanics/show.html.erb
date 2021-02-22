@@ -1,0 +1,8 @@
+h1>Mechanic's Page</h1>
+
+ <h3>Mechanic Name: <%= @mechanic.name %></h3>
+ <h3>Mechanic Years Of Experience: <%= @mechanic.years_experience %></h3>
+  Mechanic's Rides: <%= @mechanic.rides.thrills.each do |ride| %>
+  <%= ride.name %>
+ <% end %><br>
+p><a href="/mechanics/<%= @mechanic_id %>/rides/new">New Ride for <%= "#{@mechanic.name}" %></a></p><br><br>

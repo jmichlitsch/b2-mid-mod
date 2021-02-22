@@ -2,10 +2,9 @@
 
 <% @mechanics.each do |mechanic| %>
   <div id="index-<%= mechanic.id %>">
-  <%= mechanic.name %>
-  <%= mechanic.years_experience %>
-  <section id="index-mechanic-<%= mechanic.id %>">
-  <%= link_to "Update Mechanic", "/mechanics/#{mechanic.id}/update" %>
+  <h2> Name: <%= link_to "#{mechanic.name}", "/mechanics/#{mechanic.id}" %><br>
+  Years of Experience: <%= mechanic.years_experience %><br>
+  <section id="index-mechanic-<%= mechanic.id %>"><br>
   </section>
 <% end %>
 <section id="statistics">

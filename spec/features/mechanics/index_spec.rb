@@ -15,14 +15,10 @@ RSpec.describe "As a visitor on the Mechanics Index page" do
     end
 
   describe "I see the name of each mechanic in the page" do
-    it "Has a link to 'Update' next to each mechanic" do
+    it "Has a link to each mechanic next to each mechanic" do
       visit "/mechanics"
       expect(page).to have_content(@mechanic1.name)
       expect(page).to have_content(@mechanic2.name)
-      within("#index-mechanic-#{@mechanic1.id}") do
-      expect(page).to have_link("Update")
-              click_link("Update")
       end
     end
   end
-end
