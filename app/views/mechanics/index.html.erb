@@ -1,0 +1,14 @@
+<h1>All Mechanics</h1>
+
+<% @mechanics.each do |mechanic| %>
+  <div id="index-<%= mechanic.id %>">
+  <%= mechanic.name %>
+  <%= mechanic.years_experience %>
+  <section id="index-mechanic-<%= mechanic.id %>">
+  <%= link_to "Update Mechanic", "/mechanics/#{mechanic.id}/update" %>
+  </section>
+<% end %>
+<section id="statistics">
+    <h3>Statistics</h3>
+    Avg Years of Experience: <%= @mechanics.average_years_exp %>
+</section>
