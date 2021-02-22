@@ -5,4 +5,18 @@ h1>Mechanic's Page</h1>
   Mechanic's Rides: <%= @mechanic.rides.thrills.each do |ride| %>
   <%= ride.name %>
  <% end %><br>
-p><a href="/mechanics/<%= @mechanic_id %>/rides/new">New Ride for <%= "#{@mechanic.name}" %></a></p><br><br>
+
+ <%= form_tag mechanics_show_path, method: :get do %>
+   <%= label_tag :search, 'Add this Ride to Workload' %>
+   <%= text_field_tag :search, params[:search] %><br>
+   <%= submit_tag 'Search' %><br>
+
+   <% if @selected  %>
+     <% @selected.each do |selected| %>
+     <%=  selected.name %> <%= link_to 'Add this Ride to Workload', mechanics_show_path(@mechanic.id, :ride_id => selected.id, :adopt => true), method: :get %> <br>
+   <% end %>
+     <%  @mechanic.rides.each do |ride|%>
+     <%=  ride.name%>
+       <% end %>
+   <% end %>
+ <% end %>

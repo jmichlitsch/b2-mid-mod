@@ -10,4 +10,10 @@ class Ride < ApplicationRecord
     self.order("thrill_rating desc")
       .where("rides.open = true")
   end
+
+  def self.search(search)
+      key = "%#{search}%"
+      where("ride_id like :search", search: key)
+      .joins :ride_mechanics
+  end
 end
